@@ -1,0 +1,138 @@
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0;
+  overflow: hidden;
+  min-height: 100dvh;
+
+ 
+  padding-bottom: 70px;
+}
+
+.topBox {
+  background: #C3600A;
+  width: 100%;
+  min-height: 180px;
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 160px;
+  height: auto;
+}
+
+.formBox {
+  width: 100%;
+  background: #ffffff;
+  padding: 35px 20px;
+  box-sizing: border-box;
+  border-radius: 25px 25px 0 0;
+  margin-top: -25px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.inputGroup {
+  width: 100%;
+  margin-bottom: 14px;
+  background: #D9D9D9;
+  border-radius: 14px;
+  padding: 2px 8px;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 8px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  outline: none;
+}
+
+.forgot {
+  display: block;
+  font-size: 12px;
+  color: #C3600A;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.loginBtn {
+  background: #F2932F;
+  border: none;
+  padding: 12px 0;
+  width: 60%;
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 40px auto 0 auto;
+  transition: background 0.3s ease;
+}
+
+
+.bottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  border-top: 1px solid #e5e5e5;
+  padding-top: 10px;
+  background: #fff;
+
+  z-index: 9999; 
+}
+
+.activeTab {
+  flex: 1;
+  padding: 10px;
+  background: #C3600A;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.inactiveTab {
+  flex: 1;
+  padding: 10px;
+  background: #f0f0f0;
+  color: #555;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@media (min-width: 720px) {
+  .inner {
+    max-width: 480px;
+  }
+}
+
