@@ -5,6 +5,7 @@
 ## 👥 **Integrantes do Projeto**
 
 > - Bárbara Luiza,
+> - Echilin Taina,
 > - Estevão Chagas,
 > - Layza Nicolle,
 > - Matheus Vinnycius,
