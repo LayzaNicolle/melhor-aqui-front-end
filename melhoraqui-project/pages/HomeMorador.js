@@ -1,8 +1,23 @@
 import Link from 'next/link';
 import styles from '../styles/HomeMorador.module.css';
+import { useState, useEffect } from 'react';
 
 export default function Morador() {
-  const userName = 'Pedro'; // Substitua por lógica dinâmica para obter o nome do usuário
+  const [userName, setUserName] = useState('Morador');
+
+  useEffect(() => {
+    const dadosSalvos = localStorage.getItem('usuarioLogado');
+    if (dadosSalvos) {
+      try {
+        const usuario = JSON.parse(dadosSalvos);
+        if (usuario.nome) {
+          setUserName(usuario.nome.split(' ')[0]);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -62,4 +77,3 @@ export default function Morador() {
     </div>
   );
 }
-
