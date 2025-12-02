@@ -1,7 +1,27 @@
 import Link from 'next/link';
 import styles from '../styles/PerfilMorador.module.css';
+import { useState, useEffect } from 'react';
 
 export default function PerfilMorador() {
+  const [usuario, setUsuario] = useState({
+    nome: 'Carregando...',
+    email: '...',
+    cidade: '',
+    bairro: ''
+  });
+
+  useEffect(() => {
+    const dadosSalvos = localStorage.getItem('usuarioLogado');
+    if (dadosSalvos) {
+      try {
+        const dadosParseados = JSON.parse(dadosSalvos);
+        setUsuario(dadosParseados);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -15,21 +35,21 @@ export default function PerfilMorador() {
       <main className={styles.main}>
         <div className={styles.profileSection}>
           <img src="/assets/profile-picture.svg" alt="Foto de perfil" className={styles.profilePicture} />
-          <h2 className={styles.profileName}>Pedro Victor dos Santos</h2>
+          <h2 className={styles.profileName}>{usuario.nome}</h2>
         </div>
 
         <div className={styles.contactInfo}>
           <div className={styles.contactItem}>
             <img src="/assets/email-icon.svg" alt="Email" className={styles.contactIcon} />
-            <p>pedro@exemplo.com</p>
+            <p>{usuario.email}</p>
           </div>
           <div className={styles.contactItem}>
             <img src="/assets/phone-icon.svg" alt="Telefone" className={styles.contactIcon} />
-            <p>+55 00 987654123</p>
+            <p>{usuario.telefone || '(Sem telefone cadastrado)'}</p>
           </div>
           <div className={styles.contactItem}>
             <img src="/assets/location-icon.svg" alt="Localização" className={styles.contactIcon} />
-            <p>Rio de Janeiro</p>
+            <p>{usuario.cidade}</p>
           </div>
         </div>
       </main>
