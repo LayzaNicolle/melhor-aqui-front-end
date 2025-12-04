@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 
 export default function Login() {
   const router = useRouter()
-
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -15,7 +14,7 @@ export default function Login() {
     setLoading(true)
 
     try {
-      const response = await fetch('http://localhost:9234/usuarios/login', {
+      const response = await fetch('/api/usuarios/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -23,9 +22,7 @@ export default function Login() {
 
       if (response.ok) {
         const usuario = await response.json()
-
         localStorage.setItem('usuarioLogado', JSON.stringify(usuario))
-
         router.push('/HomeMorador')
       } else {
         const msg = await response.text()
@@ -48,14 +45,26 @@ export default function Login() {
       <div className={styles.formBox}>
         <h1 className={styles.title}>Login</h1>
 
+        {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
+
         <div className={styles.inputGroup}>
-          <input type="email" placeholder="E-mail" className={styles.input} value={email}
-            onChange={(e) => setEmail(e.target.value)} />
+          <input 
+            type="email" 
+            placeholder="E-mail" 
+            className={styles.input} 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)} 
+          />
         </div>
 
         <div className={styles.inputGroup}>
-          <input type="password" placeholder="Senha" className={styles.input} value={password}
-            onChange={(e) => setPassword(e.target.value)}/>
+          <input 
+            type="password" 
+            placeholder="Senha" 
+            className={styles.input} 
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
 
         <a className={styles.forgot}>Esqueceu a senha?</a>
@@ -64,7 +73,6 @@ export default function Login() {
           className={styles.loginBtn}
           onClick={handleLogin}
           disabled={loading}
-          //onClick={() => router.push('/HomeMorador')}
         >
           Entrar
         </button>

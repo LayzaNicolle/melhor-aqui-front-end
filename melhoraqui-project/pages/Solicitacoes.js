@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import styles from '../styles/Notificacoes.module.css';
+import styles from '../styles/Solicitacoes.module.css';
 import { useState, useEffect } from 'react';
 
-export default function Notificacoes() {
+export default function Solicitacoes() {
   const [solicitacoes, setSolicitacoes] = useState([]);
 
   useEffect(() => {
@@ -39,9 +39,9 @@ export default function Notificacoes() {
         <Link href="/BuscarBairros">
           <button className={styles.navItem}>Propostas</button>
         </Link>
-        <button className={styles.navItem}>Solicitações</button>
-        <button className={`${styles.navItem} ${styles.active}`}>Notificações</button>
-      </nav>
+        <button className={`${styles.navItem} ${styles.active}`}>Solicitações</button>
+        <button className={styles.navItem}>Notificações</button>
+        </nav>
 
       <main className={styles.main}>
         <section className={styles.notificationsSection}>
@@ -68,7 +68,7 @@ export default function Notificacoes() {
             ))
           ) : (
             <p style={{textAlign: 'center', marginTop: 20, color: '#666'}}>
-              Nenhuma notificação encontrada.
+              Nenhuma solicitação encontrada.
             </p>
           )}
         </section>

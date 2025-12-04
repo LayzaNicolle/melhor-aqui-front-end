@@ -56,7 +56,8 @@ export default function CadastroMorador() {
     }
 
     try {
-      const response = await fetch('http://localhost:9234/usuarios', {
+      const response = await fetch('/api/usuarios', {
+      //const response = await fetch('http://localhost:9234/usuarios', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

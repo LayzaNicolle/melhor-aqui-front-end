@@ -4,8 +4,10 @@
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   height: 100vh;
+  overflow: hidden;
 }
 
+/* HEADER */
 .header {
   display: flex;
   align-items: center;
@@ -33,6 +35,7 @@
   width: 30px;
 }
 
+/* NAV */
 .navbar {
   display: flex;
   justify-content: space-around;
@@ -47,6 +50,13 @@
   cursor: pointer;
   font-size: 16px;
   color: #333;
+}
+
+/* AQUI COMEÇA A ÁREA QUE TEM SCROLL */
+.contentScroll {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 120px;
 }
 
 .filterSection {
@@ -90,7 +100,6 @@
 }
 
 .status {
-  color: #ff6600;
   font-weight: bold;
 }
 

@@ -49,7 +49,8 @@ export default function NovaSolicitacao() {
         usuario: usuarioId ? { id: usuarioId } : null 
       };
 
-      const response = await fetch('http://localhost:9234/ideias', {
+      const response = await fetch('api/ideias', {
+      // const response = await fetch('http://localhost:9234/ideias', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
